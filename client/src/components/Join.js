@@ -1,10 +1,10 @@
 import React from 'react'
 
- const Chat=()=>{
+ const Join=()=>{
     
     return(
-        <h1>Chat</h1>
+        <h1>Join</h1>
     )
  }
 
- export default Chat;
+ export default Join;
