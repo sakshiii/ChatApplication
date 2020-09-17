@@ -4,6 +4,7 @@ import io from'socket.io-client';
 import './chat.css';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
+import Messages from '../Messages/Messages';
 
 let socket;
 
@@ -70,9 +71,10 @@ let socket;
                 }
                <InfoBar room={room}/> 
                <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
+                <Messages messages={messages} name={name}/>
+            </div>
 
             </div>
-        </div>
         )
  }
 
