@@ -7,6 +7,8 @@ let socket;
  const Chat=({location})=>{
     const[name,setName]=useState('');
     const[room,setRoom]=useState('');
+    const[message,setMessage]=useState('');
+    const[messages,setMessages]=useState([]);
     const ENDPOINT='localhost:5000';
 
     //2nd parameter a callback is passed because the useEffect was showig changes multiple times 
@@ -35,8 +37,36 @@ let socket;
         })
     },[ENDPOINT,location.search]);
 
+    //for handelling messages
+    useEffect(()=>{
+        //listen message
+        socket.on('message',(message)=>{
+            
+            //we cant mutate states so we simply add messages
+            setMessages([...messages,message])
+        },[message])
+    })
+    //function for sending messages
+    //check it on server side : socket.on('sendMessage'...callback) 
+    const sendMessage=(event)=>{
+
+        
+
+        if(message){
+            //once the message is sent it clears out the message screen
+            socket.emit('sendMessage', message , ()=> setMessage(''))
+        }
+
+    }
+
     return(
-        <h1>Chat</h1>
+        <div className="outerContainer">
+            <div className="container">
+                <input value={message} onChange={(event)=> setMessage(event.target.value)} 
+                onKeyPress={(event)=>event.key==='Enter'?sendMessage(event):null}
+                />
+            </div>
+        </div>
         )
  }
 
