@@ -1,21 +1,22 @@
+
 import React from 'react';
 
-import './InfoBar.css'
-import closeIcon from '../../icons/closeIcon';
-import onlineIcon from '../../icons/onlineIcon'; 
-const InfoBar = ( {room})=>(
-     <div className="InfoBar">
-        <div className="leftInnerContainer">
-            <img className="onlineIcon" src={onlineIcon} alt="online image"></img>
-            <h3>{room}</h3>
-        
-        </div>
-        <div className="rightInnerContainer">
-        {/* not a great practice but this link for refreshing the root and cleaning the socket */}  
-        <a href="/"><img src={closeIcon} alt="close Image" /></a>
-        </div>
-     </div>
+import onlineIcon from '../../icons/onlineIcon.png';
+import closeIcon from '../../icons/closeIcon.png';
 
+import './InfoBar.css';
+
+const InfoBar = ({ room }) => (
+  <div className="infoBar">
+    <div className="leftInnerContainer">
+      <img className="onlineIcon" src={onlineIcon} alt="online icon" />
+      <h3>{room}</h3>
+    </div>
+    <div className="rightInnerContainer">
+      {/* not a great practice but this link for refreshing the root and cleaning the socket */}  
+  
+    <a href="/"><img src={closeIcon} alt="close icon" /></a>
+    </div>
+  </div>
 );
-
 export default InfoBar;
