@@ -2,8 +2,6 @@ import React,{useState,useEffect} from 'react'
 import queryString from 'query-string';
 import io from'socket.io-client';
 import './chat.css';
-import TextContainer from '../TextContainer/TextContainer';
-import Messages from '../Messages/Messages';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
 
@@ -71,6 +69,8 @@ let socket;
                 // />
                 }
                <InfoBar room={room}/> 
+               <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
+
             </div>
         </div>
         )
