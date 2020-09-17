@@ -11,10 +11,19 @@ const router=require('./router');
 const server= http.createServer(app)
 const io= socketio(server);
 
+//socket here asa parameter is just an instance of client
 io.on('connection', (socket)=>{
 
     console.log("We have a connection!!");
+    
+    socket.on("join",({name,room},callback) =>{
+        console.log(name,room);
 
+        const error=true;
+
+        
+
+    } )
     socket.on('disconnect',()=>{
         console.log('User has left!!')
     })

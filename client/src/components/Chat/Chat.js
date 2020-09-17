@@ -23,7 +23,16 @@ let socket;
         
         //here we could write{name:name , room: room} but acc ES6 we can write simply name,room
         //client is emitting data and we can recieve that data in the backend like we are emitting the details of who joined
-        socket.emit('join',{name,room})
+        socket.emit('join',{name,room},()=>{
+
+        //this is used for unmounting that is disconnect
+        return() =>{
+            //disconnect
+            socket.emit('disconnect')
+            //for actually turning off the one instance of one client 
+            socket.off();
+        }
+        })
     },[ENDPOINT,location.search]);
 
     return(
