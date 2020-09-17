@@ -3,11 +3,11 @@ import React from 'react';
 import './InfoBar.css'
 import closeIcon from '../../icons/closeIcon';
 import onlineIcon from '../../icons/onlineIcon'; 
-const InfoBar = ( )=>{
+const InfoBar = ( {room})=>(
      <div className="InfoBar">
         <div className="leftInnerContainer">
             <img className="onlineIcon" src={onlineIcon} alt="online image"></img>
-            <h3>roomName</h3>
+            <h3>{room}</h3>
         
         </div>
         <div className="rightInnerContainer">
@@ -16,6 +16,6 @@ const InfoBar = ( )=>{
         </div>
      </div>
 
-}
+);
 
 export default InfoBar;
